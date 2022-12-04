@@ -4,30 +4,22 @@ import setaVirar from "../img/seta_virar.png"
 
 
 
-export default function (){
+export default function ({numeroPergunta}){
     return (
-        <>
+        
         <PerguntaFechada>
-            <PerguntaFechadaConteudo>Pergunta 1</PerguntaFechadaConteudo>
+            <PerguntaFechadaConteudo>Pergunta {numeroPergunta}</PerguntaFechadaConteudo>
             <img src={setaPlay} alt="botão de play para inicar o jogo"/>
             </PerguntaFechada>
-            <PerguntaFechada>
-            <PerguntaFechadaConteudo>Pergunta 1</PerguntaFechadaConteudo>
-            <img src={setaPlay} alt="botão de play para inicar o jogo"/>
-            </PerguntaFechada>
-            
-        <PerguntaAberta>Aqui tem uma pergunta aberta
-            <img src={setaVirar} alt="botão para virar o card para ver a resposta"/>
-        </PerguntaAberta>
-        <ContainerBotoes>
-        <Botoes>Não lembrei</Botoes>
-        <Botoes>Quase não lembrei</Botoes>
-        <Botoes>Zap!</Botoes>
-        </ContainerBotoes>
-        </>
         
     )
 }
+
+// <ContainerBotoes>
+//<Botoes>Não lembrei</Botoes>
+//<Botoes>Quase não lembrei</Botoes>
+//<Botoes>Zap!</Botoes>
+//</ContainerBotoes>
 
 
 const ContainerBotoes = styled.div`

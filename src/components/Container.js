@@ -1,18 +1,31 @@
 
+import { useState } from 'react';
 import styled from 'styled-components';
 import CardPergunta from './CardPergunta';
 
-export default function Container() {
+export default function Container({perguntas}) {
+
+    const [perguntaAberta, setPerguntaAberta] = useState(null)
+
     return (
        <>
-       <CardPergunta/>
+       {perguntas.map((pergunta, i) => (
+        <CardPergunta 
+        key={i} 
+        numeroPergunta={i+1}
+        abrirPergunta={() => setPerguntaAberta(i)}
+        cardAberto= {i === perguntaAberta}
+        
+        
+        
+        />
+       
+       ))}
        <FooterConcluidos>
-       <p>0/4 CONCLUÍDOS</p>
+       0/{perguntas.length} CONCLUÍDOS
        </FooterConcluidos>
        </>
        
-
-
     )
 }
 
