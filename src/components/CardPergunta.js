@@ -4,7 +4,7 @@ import setaVirar from "../img/seta_virar.png"
 
 
 
-export default function ({ numeroPergunta, abrirPergunta, cardAberto }) {
+export default function ({ numeroPergunta, abrirPergunta, cardAberto, pergunta, resposta }) {
     return (
 
         <>
@@ -15,7 +15,8 @@ export default function ({ numeroPergunta, abrirPergunta, cardAberto }) {
                 </PerguntaFechada>
 
             ) : (
-                <PerguntaAberta>Uma pergunta aberta
+                <PerguntaAberta>{pergunta}
+                <img src={setaVirar} alt="clique nesse botão para virar o card e ver a resposta"/>
                     <ContainerBotoes>
                         <Botoes>Não lembrei</Botoes>
                         <Botoes>Quase não lembrei</Botoes>
