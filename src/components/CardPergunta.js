@@ -1,12 +1,24 @@
 import styled from "styled-components"
+import setaPlay from "../img/seta_play.png"
+import setaVirar from "../img/seta_virar.png"
 
 
 
 export default function (){
     return (
         <>
-        <PerguntaFechada>Pergunta 1</PerguntaFechada>
-        <PerguntaFechada>Pergunta 1</PerguntaFechada>
+        <PerguntaFechada>
+            <PerguntaFechadaConteudo>Pergunta 1</PerguntaFechadaConteudo>
+            <img src={setaPlay} alt="botão de play para inicar o jogo"/>
+            </PerguntaFechada>
+            <PerguntaFechada>
+            <PerguntaFechadaConteudo>Pergunta 1</PerguntaFechadaConteudo>
+            <img src={setaPlay} alt="botão de play para inicar o jogo"/>
+            </PerguntaFechada>
+            
+        <PerguntaAberta>Aqui tem uma pergunta aberta
+            <img src={setaVirar} alt="botão para virar o card para ver a resposta"/>
+        </PerguntaAberta>
         <ContainerBotoes>
         <Botoes>Não lembrei</Botoes>
         <Botoes>Quase não lembrei</Botoes>
@@ -58,18 +70,16 @@ border-radius: 5px;
 display: flex;
 align-items: center;
 justify-content: space-between;
-p {
+
+`
+
+const PerguntaFechadaConteudo = styled.p`
   font-family: 'Recursive';
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
   color: #333333;
-}
-
-
-
-
 `
     
 const PerguntaAberta = styled.div`
