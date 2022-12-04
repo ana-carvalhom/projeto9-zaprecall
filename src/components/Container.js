@@ -16,8 +16,6 @@ export default function Container({perguntas}) {
         abrirPergunta={() => setPerguntaAberta(i)}
         cardAberto= {i === perguntaAberta}
         
-        
-        
         />
        
        ))}
