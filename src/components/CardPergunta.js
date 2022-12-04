@@ -1,3 +1,4 @@
+import { useState } from "react"
 import styled from "styled-components"
 import setaPlay from "../img/seta_play.png"
 import setaVirar from "../img/seta_virar.png"
@@ -5,23 +6,44 @@ import setaVirar from "../img/seta_virar.png"
 
 
 export default function ({ numeroPergunta, abrirPergunta, cardAberto, pergunta, resposta }) {
+
+const [mostrarResposta, setMostrarResposta] = useState(false)
+
     return (
 
         <>
             {!cardAberto ? (
-                <PerguntaFechada onClick={abrirPergunta}>
-                    <PerguntaFechadaConteudo>Pergunta {numeroPergunta}</PerguntaFechadaConteudo>
+                <PerguntaFechada onClick={abrirPergunta}> 
+                <PerguntaFechadaConteudo>Pergunta {numeroPergunta}
+                </PerguntaFechadaConteudo>
                     <img src={setaPlay} alt="botão de play para inicar o jogo" />
                 </PerguntaFechada>
 
             ) : (
-                <PerguntaAberta>{pergunta}
-                <img src={setaVirar} alt="clique nesse botão para virar o card e ver a resposta"/>
+                <PerguntaAberta>
+
+                    {mostrarResposta ? (
+                        <p>{resposta}</p>
+                        )
+                :              
+                
+                    (
+                    <>{pergunta}
+                    <img 
+                    src={setaVirar} 
+                    alt="clique nesse botão para virar o card e ver a resposta"
+                    onClick={() => setMostrarResposta(true)}/>
+                    
                     <ContainerBotoes>
                         <Botoes>Não lembrei</Botoes>
                         <Botoes>Quase não lembrei</Botoes>
                         <Botoes>Zap!</Botoes>
                     </ContainerBotoes>
+                    </>
+            
+                )}
+                
+                
                 </PerguntaAberta>
 
             )}
