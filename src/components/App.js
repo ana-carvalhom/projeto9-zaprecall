@@ -1,6 +1,7 @@
 import GlobalStyle from "../css/GlobalStyle";
 import styled from 'styled-components';
 import Container from "./Container";
+import Topo from "./Topo";
 
 
 
@@ -9,6 +10,7 @@ export default function App() {
   return (
     <ScreenContainer>
       <GlobalStyle />
+      <Topo/>
       <Container />
       </ScreenContainer>
   );
