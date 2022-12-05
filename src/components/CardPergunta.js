@@ -33,7 +33,7 @@ function definirCor(){
         <>
             {!cardAberto ? (
                 <PerguntaFechada onClick={abrirCard}> 
-                <PerguntaFechadaConteudo cor={definirCor()}>Pergunta {numeroPergunta}
+                <PerguntaFechadaConteudo cor={definirCor()} opcaoSelecionada={opcaoSelecionada}>Pergunta {numeroPergunta}
                 </PerguntaFechadaConteudo>
                     <img src={setaPlay} alt="botão de play para inicar o jogo" />
                 </PerguntaFechada>
@@ -99,6 +99,7 @@ const PerguntaFechadaConteudo = styled.p`
   font-size: 16px;
   line-height: 19px;
   color: ${props => props.cor};
+  text-decoration: ${props => props.opcaoSelecionada === "a pergunta ainda não foi respondida" ? "none" : "line-through"};
 `
 
 const PerguntaAberta = styled.div`
