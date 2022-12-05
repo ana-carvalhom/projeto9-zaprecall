@@ -46,7 +46,7 @@ export default function Container({perguntas}) {
         />
        
        ))}
-       <FooterConcluidos>
+       <FooterConcluidos data-test="footer" >
        {respondida.length}/{perguntas.length} CONCLUÍDOS
        </FooterConcluidos>
        </>

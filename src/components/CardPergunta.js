@@ -44,18 +44,32 @@ function definirIcone(){
     }
 }
 
+function dataTest(){
+    switch(opcaoSelecionada){
+        case "Não lembrei":
+            return "no-icon"
+        case "Quase não lembrei":
+            return "partial-icon"
+        case "Zap!":
+            return "zap-icon"
+        default:
+                return "play-btn"
+            
+    }
+}
+
     return (
 
         <>
             {!cardAberto ? (
-                <PerguntaFechada onClick={abrirCard}> 
-                <PerguntaFechadaConteudo cor={definirCor()} opcaoSelecionada={opcaoSelecionada}>Pergunta {numeroPergunta}
+                <PerguntaFechada data-test="flashcard" > 
+                <PerguntaFechadaConteudo cor={definirCor()} opcaoSelecionada={opcaoSelecionada} data-test="flashcard-text">Pergunta {numeroPergunta}
                 </PerguntaFechadaConteudo>
-                    <img src={definirIcone()} alt="botão de play para inicar o jogo" />
+                    <img src={definirIcone()} data-test={dataTest()} alt="botão de play para inicar o jogo"  onClick={abrirCard} />
                 </PerguntaFechada>
 
             ) : (
-                <PerguntaAberta>
+                <PerguntaAberta data-test="flashcard-text">
 
                     {mostrarResposta ? (
                         <p>{resposta}</p>
@@ -67,12 +81,13 @@ function definirIcone(){
                     <img 
                     src={setaVirar} 
                     alt="clique nesse botão para virar o card e ver a resposta"
-                    onClick={() => setMostrarResposta(true)}/>
+                    onClick={() => setMostrarResposta(true)}
+                    data-test="turn-btn"/>
                     
                     <ContainerBotoes>
-                        <Botoes cor={vermelho} onClick={() => resposta("Não lembrei")}>Não lembrei</Botoes>
-                        <Botoes cor={amarelo} onClick={() => resposta("Quase não lembrei")}>Quase não lembrei</Botoes>
-                        <Botoes cor={verde} onClick={() => resposta("Zap!")}>Zap!</Botoes>
+                        <Botoes data-test="no-btn" cor={vermelho} onClick={() => resposta("Não lembrei")}>Não lembrei</Botoes>
+                        <Botoes data-test="partial-btn" cor={amarelo} onClick={() => resposta("Quase não lembrei")}>Quase não lembrei</Botoes>
+                        <Botoes data-test="zap-btn" cor={verde} onClick={() => resposta("Zap!")}>Zap!</Botoes>
                     </ContainerBotoes>
                     </>
                 )}
