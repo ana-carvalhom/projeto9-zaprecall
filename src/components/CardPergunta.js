@@ -2,6 +2,9 @@ import { useState } from "react"
 import styled from "styled-components"
 import setaPlay from "../img/seta_play.png"
 import setaVirar from "../img/seta_virar.png"
+import iconeCerto from "../img/icone_certo.png"
+import iconeErro from "../img/icone_erro.png"
+import iconeQuase from "../img/icone_quase.png"
 
 
 
@@ -28,6 +31,19 @@ function definirCor(){
     }
 }
 
+function definirIcone(){
+    switch(opcaoSelecionada){
+        case "Não lembrei":
+            return iconeErro
+        case "Quase não lembrei":
+            return iconeQuase
+        case "Zap!":
+            return iconeCerto
+        default:
+            return setaPlay
+    }
+}
+
     return (
 
         <>
@@ -35,7 +51,7 @@ function definirCor(){
                 <PerguntaFechada onClick={abrirCard}> 
                 <PerguntaFechadaConteudo cor={definirCor()} opcaoSelecionada={opcaoSelecionada}>Pergunta {numeroPergunta}
                 </PerguntaFechadaConteudo>
-                    <img src={setaPlay} alt="botão de play para inicar o jogo" />
+                    <img src={definirIcone()} alt="botão de play para inicar o jogo" />
                 </PerguntaFechada>
 
             ) : (
