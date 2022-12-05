@@ -47,7 +47,7 @@ export default function Container({perguntas}) {
        
        ))}
        <FooterConcluidos>
-       0/{perguntas.length} CONCLUÍDOS
+       {respondida.length}/{perguntas.length} CONCLUÍDOS
        </FooterConcluidos>
        </>
        
