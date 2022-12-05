@@ -8,7 +8,7 @@ import iconeQuase from "../img/icone_quase.png"
 
 
 
-export default function ({ numeroPergunta, abrirPergunta, cardAberto, pergunta, resposta, opcaoSelecionada }) {
+export default function ({ numeroPergunta, abrirPergunta, cardAberto, pergunta, alternativa, resposta, opcaoSelecionada }) {
 
 const [mostrarResposta, setMostrarResposta] = useState(false)
 
@@ -72,7 +72,14 @@ function dataTest(){
                 <PerguntaAberta data-test="flashcard-text">
 
                     {mostrarResposta ? (
-                        <p>{resposta}</p>
+                        <>
+                        <p>{alternativa}</p>
+                        <ContainerBotoes>
+                        <Botoes data-test="no-btn" cor={vermelho} onClick={() => resposta("Não lembrei")}>Não lembrei</Botoes>
+                        <Botoes data-test="partial-btn" cor={amarelo} onClick={() => resposta("Quase não lembrei")}>Quase não lembrei</Botoes>
+                        <Botoes data-test="zap-btn" cor={verde} onClick={() => resposta("Zap!")}>Zap!</Botoes>
+                    </ContainerBotoes>
+                    </>
                         )
                 :              
                 
@@ -84,11 +91,7 @@ function dataTest(){
                     onClick={() => setMostrarResposta(true)}
                     data-test="turn-btn"/>
                     
-                    <ContainerBotoes>
-                        <Botoes data-test="no-btn" cor={vermelho} onClick={() => resposta("Não lembrei")}>Não lembrei</Botoes>
-                        <Botoes data-test="partial-btn" cor={amarelo} onClick={() => resposta("Quase não lembrei")}>Quase não lembrei</Botoes>
-                        <Botoes data-test="zap-btn" cor={verde} onClick={() => resposta("Zap!")}>Zap!</Botoes>
-                    </ContainerBotoes>
+                    
                     </>
                 )}
                 

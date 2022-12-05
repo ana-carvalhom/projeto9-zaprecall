@@ -40,6 +40,7 @@ export default function Container({perguntas}) {
         abrirPergunta={() => setPerguntaAberta(i)}
         cardAberto= {i === perguntaAberta}
         pergunta={pergunta.question}
+        alternativa={pergunta.answer}
         resposta={resposta}
         opcaoSelecionada={definirOpcaoSelecionada(i)}
     
