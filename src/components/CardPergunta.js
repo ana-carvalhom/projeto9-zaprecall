@@ -35,12 +35,12 @@ const [mostrarResposta, setMostrarResposta] = useState(false)
                     onClick={() => setMostrarResposta(true)}/>
                     
                     <ContainerBotoes>
-                        <Botoes>Não lembrei</Botoes>
-                        <Botoes>Quase não lembrei</Botoes>
-                        <Botoes>Zap!</Botoes>
+                        <Botoes onClick={() => resposta("Não lembrei")}>Não lembrei</Botoes>
+                        <Botoes onClick={() => resposta("Quase não lembrei")}>Quase não lembrei</Botoes>
+                        <Botoes onClick={() => resposta("Zap!")}>Zap!</Botoes>
                     </ContainerBotoes>
                     </>
-            
+            //parei aqui - a função respostaDaPergunta está no componente container. Como passar pra lá?
                 )}
                 
                 

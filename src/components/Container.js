@@ -6,6 +6,21 @@ import CardPergunta from './CardPergunta';
 export default function Container({perguntas}) {
 
     const [perguntaAberta, setPerguntaAberta] = useState(null)
+    const [respondida, setRespondida] = useState([])
+    
+
+    function resposta(opcaoSelecionada){
+        if (perguntaAberta !== null) {
+
+            const repostasNew = [...respondida, {index: perguntaAberta, opcaoSelecionada:opcaoSelecionada }]
+            setRespondida(repostasNew)
+            setPerguntaAberta(null)
+            console.log(repostasNew)
+        }
+         
+        
+        
+    }
 
     return (
        <>
@@ -16,8 +31,8 @@ export default function Container({perguntas}) {
         abrirPergunta={() => setPerguntaAberta(i)}
         cardAberto= {i === perguntaAberta}
         pergunta={pergunta.question}
-        resposta={pergunta.answer}
-        
+        resposta={resposta}
+    
         />
        
        ))}
