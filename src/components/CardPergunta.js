@@ -35,12 +35,11 @@ const [mostrarResposta, setMostrarResposta] = useState(false)
                     onClick={() => setMostrarResposta(true)}/>
                     
                     <ContainerBotoes>
-                        <Botoes onClick={() => resposta("Não lembrei")}>Não lembrei</Botoes>
-                        <Botoes onClick={() => resposta("Quase não lembrei")}>Quase não lembrei</Botoes>
-                        <Botoes onClick={() => resposta("Zap!")}>Zap!</Botoes>
+                        <Botoes cor={"#FF3030"} onClick={() => resposta("Não lembrei")}>Não lembrei</Botoes>
+                        <Botoes cor={"#FF922E"} onClick={() => resposta("Quase não lembrei")}>Quase não lembrei</Botoes>
+                        <Botoes cor={"#2FBE34"} onClick={() => resposta("Zap!")}>Zap!</Botoes>
                     </ContainerBotoes>
                     </>
-            //parei aqui - a função respostaDaPergunta está no componente container. Como passar pra lá?
                 )}
                 
                 
@@ -127,9 +126,9 @@ const Botoes = styled.button`
         justify-content: center;
         text-align: center;
         color: #FFFFFF;
-        background: blue;
+        background: ${props => props.cor};
         border-radius: 5px;
-        border: 1px solid blue;
+        border: 1px solid ${props => props.cor};
         padding:5px;
         margin-left: 8px;
 

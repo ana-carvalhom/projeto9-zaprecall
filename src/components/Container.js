@@ -22,6 +22,15 @@ export default function Container({perguntas}) {
         
     }
 
+    function definirOpcaoSelecionada(i){
+        const perguntas = respondida.find((p) => p.index === i)
+        if(perguntas !== null && perguntas !== undefined){
+            return perguntas.opcaoSelecionada
+        } else {
+            return "a pergunta ainda não foi respondida"
+        }
+    }
+
     return (
        <>
        {perguntas.map((pergunta, i) => (
@@ -32,6 +41,7 @@ export default function Container({perguntas}) {
         cardAberto= {i === perguntaAberta}
         pergunta={pergunta.question}
         resposta={resposta}
+        opcaoSelecionada={definirOpcaoSelecionada(i)}
     
         />
        
